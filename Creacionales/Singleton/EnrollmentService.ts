@@ -5,7 +5,7 @@ export class EnrollmentService {
     private notificationManager: NotificationManager;
 
     constructor() {
-        this.notificationManager = new NotificationManager();
+        this.notificationManager = NotificationManager.getSingleInstance();
     }
 
     public enrollStudent(studentEmail: string): void {
