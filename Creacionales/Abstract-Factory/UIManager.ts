@@ -11,7 +11,7 @@ export class UIManager {
         this.uiFactory = uiFactory
     }
 
-    public createUI(userType: string) : { button: IButton, dialog: IDialog } {
+    public createUI() : { button: IButton, dialog: IDialog } {
         const button = this.uiFactory.createButton()
         const dialog = this.uiFactory.createDialog()
         return {button,dialog}
