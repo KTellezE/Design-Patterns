@@ -1,27 +1,14 @@
-
-interface InstructorDetails {
-    name: string;
-    email: string;
-    experience: number; // Años de experiencia
-}
-
-interface Schedule {
-    days: string[]; // Días de la semana, por ejemplo ['Lunes', 'Miércoles']
-    time: string;   // Hora, por ejemplo '10:00 - 12:00'
-}
-
-interface Student {
-    name: string;
-    email: string;
-}
+import { IInstructorDetails } from "./IInstructorDetails";
+import { ISchedule } from "./ISchedule";
+import { IStudent } from "./IStudent";
 
 export class Course {
     public name: string;
     public description: string;
     public materials: string[];
-    public instructorDetails: InstructorDetails;
-    public schedule: Schedule | null;
-    public students: Student[] | null;
+    public instructorDetails: IInstructorDetails;
+    public schedule: ISchedule | null;
+    public students: IStudent[] | null;
     public startDate: Date | null;
     public endDate: Date | null;
 
