@@ -91,15 +91,47 @@ export class CourseBuilder{
     }
 
     public fromPrototype(course:Course) : CourseBuilder{
-        this.name = course.name
-        this.description = course.description
-        this.materials = [ ...course.materials ]
-        this.instructorDetails = { ...course.instructorDetails }
-        this.students = course.students ? course.students.map(student => ({ ...student })) : null
-        this.schedule = course.schedule ? {...course.schedule} : null
-        this.startDate = course.startDate ?  new Date(course.startDate.getTime()) : null
-        this.endDate = course.endDate ?  new Date(course.endDate.getTime()) : null
+        this.name = course.getName
+        this.description = course.getDescription
+        this.materials = [ ...course.getMaterials ]
+        this.instructorDetails = { ...course.getInstructorDetails }
+        this.students = course.getStudents ? course.getStudents.map(student => ({ ...student })) : null
+        this.schedule = course.getSchedule ? {...course.getSchedule} : null
+        this.startDate = course.getStartDate ?  new Date(course.getStartDate.getTime()) : null
+        this.endDate = course.getEndDate ?  new Date(course.getEndDate.getTime()) : null
         this.customMethod = course.addExtraBehavior
         return this
+    }
+
+    get getName():string{
+        return this.name
+    }
+
+    get getDescription():string{
+        return this.description
+    }
+
+    get getMaterials():string[]{
+        return this.materials
+    }
+
+    get getInstructorDetails():IInstructorDetails{
+        return this.getInstructorDetails
+    }
+
+    get getSchedule():ISchedule|null{
+        return this.schedule
+    }
+
+    get getStudents(): IStudent[] | null{
+        return this.students
+    }
+
+    get getStartDate(): Date | null{
+        return this.startDate
+    }
+
+    get getEndDate(): Date|null{
+        return this.endDate
     }
 }

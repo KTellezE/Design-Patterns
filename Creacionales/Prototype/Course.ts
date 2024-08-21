@@ -3,14 +3,14 @@ import { ISchedule } from "./ISchedule";
 import { IStudent } from "./IStudent";
 
 export class Course {
-    public name: string;
-    public description: string;
-    public materials: string[];
-    public instructorDetails: IInstructorDetails;
-    public schedule: ISchedule | null;
-    public students: IStudent[] | null;
-    public startDate: Date | null;
-    public endDate: Date | null;
+    private name: string;
+    private description: string;
+    private materials: string[];
+    private instructorDetails: IInstructorDetails;
+    private schedule: ISchedule | null;
+    private students: IStudent[] | null;
+    private startDate: Date | null;
+    private endDate: Date | null;
 
     constructor(
         name: string,
@@ -56,5 +56,37 @@ export class Course {
             this.startDate,
             this.endDate
         );
+    }
+
+    get getName():string{
+        return this.name
+    }
+
+    get getDescription():string{
+        return this.description
+    }
+
+    get getMaterials():string[]{
+        return this.materials
+    }
+
+    get getInstructorDetails():IInstructorDetails{
+        return this.instructorDetails
+    }
+
+    get getSchedule():ISchedule|null{
+        return this.schedule
+    }
+
+    get getStudents(): IStudent[] | null{
+        return this.students
+    }
+
+    get getStartDate(): Date | null{
+        return this.startDate
+    }
+
+    get getEndDate(): Date|null{
+        return this.endDate
     }
 }

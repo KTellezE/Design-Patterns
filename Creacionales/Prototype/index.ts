@@ -1,5 +1,5 @@
 
-import { CourseBuilder } from './CourseBuilder';
+import { CourseBuilder } from "./CourseBuilder";
 
 const basicCourse = new CourseBuilder()
     .setName('Introducción a TypeScript')
