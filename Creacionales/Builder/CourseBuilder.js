@@ -34,10 +34,10 @@ class CourseBuilder {
         this.instructorDetails = instructor;
         return this;
     }
-    // public setSchudule( schedule : ISchedule ) : CourseBuilder{
-    //     this.schedule = schedule
-    //     return this
-    // }
+    setSchudule(schedule) {
+        this.schedule = schedule;
+        return this;
+    }
     setStudents(students) {
         this.students = students;
         return this;

@@ -89,4 +89,18 @@ export class CourseBuilder{
         this.materials.push(material);
         return this;
     }
+
+    public fromPrototype(course:Course) : CourseBuilder{
+        this.name = course.getName
+        this.description = course.getDescription
+        this.materials = [ ...course.getMaterials ]
+        this.instructorDetails = { ...course.getInstructorDetails }
+        this.students = course.getStudents ? course.getStudents.map(student => ({ ...student })) : null
+        this.schedule = course.getSchedule ? {...course.getSchedule} : null
+        this.startDate = course.getStartDate ?  new Date(course.getStartDate.getTime()) : null
+        this.endDate = course.getEndDate ?  new Date(course.getEndDate.getTime()) : null
+        this.customMethod = course.addExtraBehavior
+        return this
+    }
+
 }
