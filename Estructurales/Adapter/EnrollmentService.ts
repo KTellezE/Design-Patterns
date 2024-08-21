@@ -15,5 +15,6 @@ export class EnrollmentService {
         // Notificación de inscripción exitosa
         this.notificationManager.notifyByEmail('Tu inscripción al curso Patrones de Diseño fue exitosa', studentEmail);
         this.notificationManager.notifyBySMS('Tu inscripción al curso Patrones de Diseño fue exitosa', studentEmail);
+        this.notificationManager.ownNotificationTelegram('Tu incripcion al curso Patrones de Diseño fue exitosa','5613098767')
     }
 }
