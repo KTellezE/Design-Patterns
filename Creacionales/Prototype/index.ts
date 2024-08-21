@@ -12,8 +12,8 @@ console.log('*****************************************');
 
 const advancedCourse = new CourseBuilder()
     .setName('TypeScript Avanzado')
-    .setDescription('Un curso avanzado sobre TypeScript')
-    .setInstructor({ name: 'Bob', email: 'bob@example.com', experience: 10 })
+    .setDescription('Template para cursos avanzados')
+    .setSchudule( { days : ["Lunes"] , time : 'de 8 AM a 5 PM' } )
     .setStartDate(new Date(2024, 8, 1))
     .setEndDate(new Date(2024, 11, 30))
     .setStudents([
@@ -24,7 +24,7 @@ const advancedCourse = new CourseBuilder()
         { name: 'Amairani', email: 'Amairani@example.com' },
     ])
     .addStudent({ name: 'Victor', email: 'Victor@example.com' })
-    .addMaterial("automovil")
+    .setMaterials(["automovil","Diapos","Libros","Laptop"])
     .setCustomMethod( (message : string) => {
         console.log("Se agrego funcionalidad extra " + message)
     } )
@@ -35,6 +35,24 @@ advancedCourse.displayCourseInfo();
 console.log('*****************************************');
 advancedCourse.addExtraBehavior("Aqui mero se agrero")
 
+const cursoAvanzadoBD = new CourseBuilder()
+    .fromPrototype(advancedCourse.clone())
+    .setName("Curso especializado de BD")
+    .setInstructor( { name: 'Alice', email: 'alice@example.com', experience: 5 } )
+    .setSchudule( { days : ["Lunes"] , time : 'de 8 AM a 10 AM' }  )
+    .buildCourse()
 
+console.log('Curso 3: clon');
+cursoAvanzadoBD.displayCourseInfo()
+console.log('*****************************************');
 
+const cursoAvanzadoAPIs = new CourseBuilder()
+    .fromPrototype(advancedCourse.clone())
+    .setName("Curso especializado de Apis")
+    .setInstructor( { name: 'Gerard', email: 'gerard@example.com', experience: 50 } )
+    .setSchudule( { days : ["Lunes"] , time : 'de 10 AM a 12 AM' }  )
+    .buildCourse()
 
+console.log('Curso 4: clon');
+cursoAvanzadoAPIs.displayCourseInfo()
+console.log('*****************************************');
