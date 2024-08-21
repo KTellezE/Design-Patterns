@@ -3,22 +3,22 @@ import { ISchedule } from "./ISchedule";
 import { IStudent } from "./IStudent";
 
 export class Course {
-    public name: string;
-    public description: string;
-    public materials: string[];
-    public instructorDetails: IInstructorDetails;
-    public schedule: ISchedule | null;
-    public students: IStudent[] | null;
-    public startDate: Date | null;
-    public endDate: Date | null;
+    private name: string;
+    private description: string;
+    private materials: string[];
+    private instructorDetails: IInstructorDetails;
+    private schedule: ISchedule | null;
+    private students: IStudent[] | null;
+    private startDate: Date | null;
+    private endDate: Date | null;
 
     constructor(
         name: string,
         description: string,
         materials: string[],
-        instructorDetails: InstructorDetails,
-        schedule: Schedule | null,
-        students: Student[] | null,
+        instructorDetails: IInstructorDetails,
+        schedule: ISchedule | null,
+        students: IStudent[] | null,
         startDate: Date | null,
         endDate: Date | null
     ) {

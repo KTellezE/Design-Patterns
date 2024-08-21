@@ -1,26 +1,27 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Course_1 = require("./Course");
-// Creación de un curso con múltiples parámetros, algunos nulos o vacíos
-const basicCourse = new Course_1.Course('Introducción a TypeScript', '', // Descripción nula
-[], // Materiales nulos
-{ name: 'Alice', email: 'alice@example.com', experience: 5 }, // Detalles del instructor
-null, // Horario por defecto
-null, // Lista de estudiantes vacía
-null, // Fecha de inicio por defecto
-null // Fecha de fin por defecto
-);
+const CourseBuilder_1 = require("./CourseBuilder");
+const basicCourse = new CourseBuilder_1.CourseBuilder()
+    .setName('Introducción a TypeScript')
+    .setInstructor({ name: 'Alice', email: 'alice@example.com', experience: 5 })
+    .buildCourse(); //esta linea nos devuelve un objeto tipo course, si la quito, regresa un builder
 console.log('Curso 1:');
 basicCourse.displayCourseInfo();
 console.log('*****************************************');
-// Creación de un curso completo con todos los detalles
-const advancedCourse = new Course_1.Course('TypeScript Avanzado', 'Un curso avanzado sobre TypeScript', ['Libro', 'Videos', 'Proyectos'], { name: 'Bob', email: 'bob@example.com', experience: 10 }, { days: ['Lunes', 'Miércoles'], time: '10:00 - 12:00' }, [
+const advancedCourse = new CourseBuilder_1.CourseBuilder()
+    .setName('TypeScript Avanzado')
+    .setDescription('Un curso avanzado sobre TypeScript')
+    .setInstructor({ name: 'Bob', email: 'bob@example.com', experience: 10 })
+    .setStartDate(new Date(2024, 8, 1))
+    .setEndDate(new Date(2024, 11, 30))
+    .setStudents([
     { name: 'Kevin', email: 'Kevin@example.com' },
     { name: 'Victor', email: 'Victor@example.com' },
     { name: 'Camila', email: 'Camila@example.com' },
     { name: 'Jose', email: 'Jose@example.com' },
     { name: 'Amairani', email: 'Amairani@example.com' },
-], new Date(2024, 8, 1), new Date(2024, 11, 30));
+])
+    .buildCourse();
 console.log('Curso 2:');
 advancedCourse.displayCourseInfo();
 console.log('*****************************************');
