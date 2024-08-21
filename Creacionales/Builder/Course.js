@@ -23,5 +23,6 @@ class Course {
         console.log(`Materiales: ${this.materials.join(', ')}`);
         console.log(`Estudiantes inscritos: ${(_e = this.students) === null || _e === void 0 ? void 0 : _e.map(s => s.name).join(', ')}`);
     }
+    addExtraBehavior(behavior) { } //Funcionalidad implementada desde el exterior
 }
 exports.Course = Course;

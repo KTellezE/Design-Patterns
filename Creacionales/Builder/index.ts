@@ -25,8 +25,12 @@ const advancedCourse = new CourseBuilder()
     ])
     .addStudent({ name: 'Victor', email: 'Victor@example.com' })
     .addMaterial("automovil")
+    .setCustomMethod( (message : string) => {
+        console.log("Se agrego funcionalidad extra " + message)
+    } )
     .buildCourse();
 
 console.log('Curso 2:');
 advancedCourse.displayCourseInfo();
 console.log('*****************************************');
+advancedCourse.addExtraBehavior("Aqui mero se agrero")

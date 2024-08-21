@@ -12,6 +12,11 @@ class CourseBuilder {
         this.students = null;
         this.startDate = null;
         this.endDate = null;
+        this.customMethod = (behavior) => { };
+    }
+    setCustomMethod(method) {
+        this.customMethod = method;
+        return this;
     }
     setName(name) {
         this.name = name;
@@ -47,6 +52,7 @@ class CourseBuilder {
     }
     buildCourse() {
         const course = new Course_1.Course(this.name, this.description, this.materials, this.instructorDetails, this.schedule, this.students, this.startDate, this.endDate);
+        course.addExtraBehavior = this.customMethod;
         return course;
     }
     modifyInstructor(newInstructor) {

@@ -42,4 +42,6 @@ export class Course {
         console.log(`Materiales: ${this.materials.join(', ')}`);
         console.log(`Estudiantes inscritos: ${this.students?.map(s => s.name).join(', ')}`);
     }
+
+    public addExtraBehavior(behavior:string) : void {} //Funcionalidad implementada desde el exterior
 }

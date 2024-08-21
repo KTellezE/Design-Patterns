@@ -13,6 +13,13 @@ export class CourseBuilder{
     private startDate: Date | null = null;
     private endDate: Date | null = null;
 
+    private customMethod : (behavior : string) => void = (behavior : string) => {}
+
+    public setCustomMethod(method : (behavior : string) => void) : CourseBuilder{
+        this.customMethod = method
+        return this
+    }
+
     public setName( name : string ) : CourseBuilder{
         this.name = name
         return this
@@ -64,7 +71,8 @@ export class CourseBuilder{
             this.startDate,
             this.endDate
         );
-        return course
+        course.addExtraBehavior = this.customMethod;
+        return course;
     }
 
     public modifyInstructor(newInstructor : IInstructorDetails){
