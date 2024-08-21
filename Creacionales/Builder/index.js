@@ -21,6 +21,8 @@ const advancedCourse = new CourseBuilder_1.CourseBuilder()
     { name: 'Jose', email: 'Jose@example.com' },
     { name: 'Amairani', email: 'Amairani@example.com' },
 ])
+    .addStudent({ name: 'Victor', email: 'Victor@example.com' })
+    .addMaterial("automovil")
     .buildCourse();
 console.log('Curso 2:');
 advancedCourse.displayCourseInfo();

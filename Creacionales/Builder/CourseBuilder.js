@@ -49,5 +49,18 @@ class CourseBuilder {
         const course = new Course_1.Course(this.name, this.description, this.materials, this.instructorDetails, this.schedule, this.students, this.startDate, this.endDate);
         return course;
     }
+    modifyInstructor(newInstructor) {
+        this.instructorDetails = newInstructor;
+        return this;
+    }
+    addStudent(student) {
+        var _a;
+        (_a = this.students) === null || _a === void 0 ? void 0 : _a.push(student);
+        return this;
+    }
+    addMaterial(material) {
+        this.materials.push(material);
+        return this;
+    }
 }
 exports.CourseBuilder = CourseBuilder;

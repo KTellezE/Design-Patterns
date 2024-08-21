@@ -66,4 +66,19 @@ export class CourseBuilder{
         );
         return course
     }
+
+    public modifyInstructor(newInstructor : IInstructorDetails){
+        this.instructorDetails = newInstructor
+        return this
+    }
+
+    public addStudent(student: IStudent): CourseBuilder {
+        this.students?.push(student);
+        return this;
+    }
+
+    public addMaterial(material : string): CourseBuilder {
+        this.materials.push(material);
+        return this;
+    }
 }
