@@ -1,31 +1,19 @@
 
 import { IButton } from './UIObjects/IButton';
 import { IDialog } from './UIObjects/IDialog';
-import { AdminButton } from './UIObjects/AdminButton';
-import { InstructorButton } from './UIObjects/InstructorButton';
-import { StudentButton } from './UIObjects/StudentButton';
-import { AdminDialog } from './UIObjects/AdminDialog';
-import { InstructorDialog } from './UIObjects/InstructorDialog';
-import { StudentDialog } from './UIObjects/StudentDialog';
+import { UIFactory } from './UIFactory';
 
 export class UIManager {
-    public createUI(userType: string): { button: IButton, dialog: IDialog } {
-        let button: IButton;
-        let dialog: IDialog;
+    private uiFactory : UIFactory
 
-        if (userType === 'admin') {
-            button = new AdminButton();
-            dialog = new AdminDialog();
-        } else if (userType === 'instructor') {
-            button = new InstructorButton();
-            dialog = new InstructorDialog();
-        } else if (userType === 'student') {
-            button = new StudentButton();
-            dialog = new StudentDialog();
-        } else {
-            throw new Error('Tipo de usuario no reconocido');
-        }
+    constructor(uiFactory : UIFactory)
+    {
+        this.uiFactory = uiFactory
+    }
 
-        return { button, dialog };
+    public createUI(userType: string) : { button: IButton, dialog: IDialog } {
+        const button = this.uiFactory.createButton()
+        const dialog = this.uiFactory.createDialog()
+        return {button,dialog}
     }
 }
