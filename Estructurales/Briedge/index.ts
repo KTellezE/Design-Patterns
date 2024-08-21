@@ -32,11 +32,6 @@ const advancedCourse = new CourseBuilder()
     } )
     .buildCourse();
 
-// console.log('Curso 2:');
-// advancedCourse.displayCourseInfo();
-// console.log('*****************************************');
-// advancedCourse.addExtraBehavior("Aqui mero se agrero")
-
 const cursoAvanzadoBD = new CourseBuilder()
     .fromPrototype(advancedCourse.clone())
     .setName("Curso especializado de BD")
@@ -46,7 +41,6 @@ const cursoAvanzadoBD = new CourseBuilder()
     .buildCourse()
 
 console.log('Curso 3: clon');
-//cursoAvanzadoBD.displayCourseInfo()
 console.log('*****************************************');
 
 const presentacionOnline = new PresentacionOnline('Teams',cursoAvanzadoBD)
@@ -59,14 +53,3 @@ const presentacionOnsite = new PresentacionOnsite('Interlomas',advancedCourse)
 presentacionOnsite.presentarCurso()
 presentacionOnsite.rsvp(false)
 presentacionOnline.sendReminder(`el día ${advancedCourse.getStartDate}`)
-
-// const cursoAvanzadoAPIs = new CourseBuilder()
-//     .fromPrototype(advancedCourse.clone())
-//     .setName("Curso especializado de Apis")
-//     .setInstructor( { name: 'Gerard', email: 'gerard@example.com', experience: 50 } )
-//     .setSchudule( { days : ["Lunes"] , time : 'de 10 AM a 12 AM' }  )
-//     .buildCourse()
-
-// console.log('Curso 4: clon');
-// cursoAvanzadoAPIs.displayCourseInfo()
-// console.log('*****************************************');
