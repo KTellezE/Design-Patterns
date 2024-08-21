@@ -103,35 +103,4 @@ export class CourseBuilder{
         return this
     }
 
-    get getName():string{
-        return this.name
-    }
-
-    get getDescription():string{
-        return this.description
-    }
-
-    get getMaterials():string[]{
-        return this.materials
-    }
-
-    get getInstructorDetails():IInstructorDetails{
-        return this.getInstructorDetails
-    }
-
-    get getSchedule():ISchedule|null{
-        return this.schedule
-    }
-
-    get getStudents(): IStudent[] | null{
-        return this.students
-    }
-
-    get getStartDate(): Date | null{
-        return this.startDate
-    }
-
-    get getEndDate(): Date|null{
-        return this.endDate
-    }
 }
